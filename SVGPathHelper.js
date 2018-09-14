@@ -60,6 +60,11 @@ var SVGPathHelper = function() {
         return this;
     }
 
+    this.scaleTo = function(width, height) {
+        var pathSize = this.size();
+        return this.scale(width / pathSize.x, height / pathSize.y);
+    }
+
     this.translate = function(deltaX, deltaY) {
         this.commands = this.commands.map(command => {
             return command.map((item, index) => {
