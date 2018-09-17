@@ -62,7 +62,10 @@ var SVGPathHelper = function() {
 
     this.scaleTo = function(width, height) {
         var pathSize = this.size();
-        return this.scale(width / pathSize.x, height / pathSize.y);
+        var scaleX = width / pathSize.x;
+        var scaleY = height / pathSize.y;
+        var newScale = Math.min(scaleX, scaleY)
+        return this.scale(newScale, newScale);
     }
 
     this.translate = function(deltaX, deltaY) {
